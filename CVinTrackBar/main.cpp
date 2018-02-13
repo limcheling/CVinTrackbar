@@ -27,10 +27,11 @@ cv::Mat src, bg, src_dst, bg_dst, dst;
 void demo_contrast(int, void*);
 void demo_brightness(int, void*);
 void demo_backgrond(int, void*);
+void adjustImage();
 
 double alpha = 1, beta = 0;
-double dContrast;
-int iBrightness;
+double dContrast =  1;
+int iBrightness = 0;
 
 int main(int argc, const char * argv[]) {
     
@@ -68,6 +69,7 @@ int main(int argc, const char * argv[]) {
     //demo(contrast_value, 0);
 
     cv::createTrackbar(trackbar_background, windowname, &alphaSlider, max_alphaSlider, demo_backgrond);
+    adjustImage();
     
     cv::imshow(windowname, src);
     cv::waitKey();
